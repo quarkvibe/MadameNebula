@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-cosmic-background text-cosmic-text font-body overflow-x-hidden;
+  background-image: radial-gradient(circle at 50% 50%, #1A1A2E 0%, #0A0A1F 100%);
+}
+
+@layer components {
+  .cosmic-input {
+    @apply bg-cosmic-card border border-cosmic-purple rounded-md 
+           px-4 py-2 text-cosmic-text shadow-inner
+           focus:outline-none focus:ring-2 focus:ring-cosmic-accent
+           focus:border-cosmic-accent transition duration-200;
+  }
+  
+  .cosmic-button {
+    @apply bg-cosmic-purple text-cosmic-text font-medium rounded-md 
+           px-6 py-3 shadow-md hover:bg-cosmic-deepPurple 
+           focus:outline-none focus:ring-2 focus:ring-cosmic-accent
+           transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .cosmic-card {
+    @apply bg-cosmic-card border border-cosmic-purple rounded-lg
+           shadow-cosmic p-6 backdrop-blur-sm;
+  }
+
+  .reading-card {
+    @apply cosmic-card relative overflow-hidden
+           transform transition-all duration-500;
+  }
+
+  .reading-card.active {
+    @apply shadow-glow border-cosmic-accent;
+  }
+
+  .stars-background {
+    @apply fixed inset-0 bg-stars bg-cover bg-center opacity-20 z-0;
+  }
+
+  .stars-overlay {
+    @apply absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0)_0%,rgba(10,10,31,0.9)_70%,rgba(10,10,31,1)_100%)];
+  }
+
+  .cosmic-particles {
+    @apply absolute inset-0 pointer-events-none overflow-hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-cosmic-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-cosmic-purple rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-cosmic-accent;
+}
+
+/* Date picker overrides */
+.react-datepicker {
+  @apply bg-cosmic-card border-cosmic-purple text-cosmic-text !important;
+}
+
+.react-datepicker__header {
+  @apply bg-cosmic-purple text-cosmic-text !important;
+}
+
+.react-datepicker__current-month, 
+.react-datepicker__day-name {
+  @apply text-cosmic-text !important;
+}
+
+.react-datepicker__day {
+  @apply text-cosmic-text hover:bg-cosmic-purple !important;
+}
+
+.react-datepicker__day--selected {
+  @apply bg-cosmic-accent text-cosmic-darker !important;
+}
